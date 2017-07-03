@@ -307,31 +307,32 @@ public class SkyObject {
         return coord;
     }
 
-    /**
-     * returns calendar date as a string in international format given the
-     * modified julian date BC dates are in calendar format - i.e. no year zero
-     * Gregorian dates are returned after 1582 Oct 10th In English colonies and
-     * Sweeden, this does not reflect historical dates
-     */
-    private Calendar calday(double x) {
-        double jd = x + 2400000.5;
-        double jd0 = ipart(jd + 0.5);
-        double c;
-        if (jd0 < 2299161.0) {
-            c = jd0 + 1524;
-        } else {
-            double b = ipart((jd0 - 1867216.25) / 36524.25);
-            c = jd0 + (b - ipart(b / 4.0)) + 1525.0;
-        }
-        double d = ipart((c - 122.1) / 365.25);
-        double e = 365.0 * d + ipart(d / 4.0);
-        double F = ipart((c - e) / 30.6001);
-        int day = (int) (ipart(c - e + 0.5) - ipart(30.6001 * F));
-        int month = (int) (F - 1.0 - 12.0 * ipart(F / 14.0));
-        int year = (int) (d - 4715.0 - ipart((month + 7.0) / 10.0));
-        GregorianCalendar cal = new GregorianCalendar(year, month - 1, day);
-        return cal;
-    }
+
+	/**
+	 * returns calendar date as a string in international format given the
+	 * modified julian date BC dates are in calendar format - i.e. no year zero
+	 * Gregorian dates are returned after 1582 Oct 10th In English colonies and
+	 * Sweeden, this does not reflect historical dates
+	 */
+//	private Calendar calday(double x) {
+//		double jd = x + 2400000.5;
+//		double jd0 = ipart(jd + 0.5);
+//		double c;
+//		if (jd0 < 2299161.0) {
+//			c = jd0 + 1524;
+//		} else {
+//			double b = ipart((jd0 - 1867216.25) / 36524.25);
+//			c = jd0 + (b - ipart(b / 4.0)) + 1525.0;
+//		}
+//		double d = ipart((c - 122.1) / 365.25);
+//		double e = 365.0 * d + ipart(d / 4.0);
+//		double F = ipart((c - e) / 30.6001);
+//		int day = (int) (ipart(c - e + 0.5) - ipart(30.6001 * F));
+//		int month = (int) (F - 1.0 - 12.0 * ipart(F / 14.0));
+//		int year = (int) (d - 4715.0 - ipart((month + 7.0) / 10.0));
+//		GregorianCalendar cal = new GregorianCalendar(year, month - 1, day);
+//		return cal;
+//	}
 
     /**
      * returns sine of the altitude of either the sun or the moon given the
