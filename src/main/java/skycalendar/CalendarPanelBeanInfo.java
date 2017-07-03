@@ -79,9 +79,9 @@ public class CalendarPanelBeanInfo extends SimpleBeanInfo {
 				property("border", "getBorder", "setBorder",
 						"The component's border."),
 				property("showMoon", "isShowMoon", "setShowMoon",
-						"Whether the moon visiblity shall be displayed."),
+						"Whether the moon visibility shall be displayed."),
 				property("showSun", "isShowSun", "setShowSun",
-						"Whether the sun visiblity shall be displayed."),
+						"Whether the sun visibility shall be displayed."),
 				property("showNaut", "isShowNaut", "setShowNaut",
 						"Whether the nautical twilight shall be displayed."),
 				property("showAstro", "isShowAstro", "setShowAstro",
@@ -163,7 +163,7 @@ public class CalendarPanelBeanInfo extends SimpleBeanInfo {
 			p.setShortDescription(propertyDescription);
 			return p;
 		} catch (IntrospectionException e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		return null;
 	}
@@ -190,7 +190,7 @@ public class CalendarPanelBeanInfo extends SimpleBeanInfo {
 					removeListenerName);
 			return es;
 		} catch (IntrospectionException e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		return null;
 	}
