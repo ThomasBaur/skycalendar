@@ -2,9 +2,10 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	compile( group:'joda-time', name:'joda-time', version:'2.1')
+    compile(group: 'joda-time', name: 'joda-time', version: '2.1')
+    compile (group: 'org.mockito', name: 'mockito-core', version:'2.+')
 }
