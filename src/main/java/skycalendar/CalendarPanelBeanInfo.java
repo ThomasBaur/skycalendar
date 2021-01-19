@@ -50,7 +50,8 @@ public class CalendarPanelBeanInfo extends SimpleBeanInfo {
 	 *         properties supported by this bean.
 	 */
 	public PropertyDescriptor[] getPropertyDescriptors() {
-		PropertyDescriptor propertyDescriptor[] = {
+
+		return new PropertyDescriptor[]{
 				// property("alignmentX",
 				// "getAlignmentX",
 				// "setAlignmentX",
@@ -96,7 +97,6 @@ public class CalendarPanelBeanInfo extends SimpleBeanInfo {
 						"The latitude of the observers position."),
 				property("desiredTimeZone", "getDesiredTimeZone", "setDesiredTimeZone",
 						"The timezone of the observers position.") };
-		return propertyDescriptor;
 	}
 
 	/**
@@ -106,23 +106,24 @@ public class CalendarPanelBeanInfo extends SimpleBeanInfo {
 	 *         supported by this bean.
 	 */
 	public EventSetDescriptor[] getEventSetDescriptors() {
-		EventSetDescriptor eventSetDescriptor[] = {
+
+		return new EventSetDescriptor[]{
 				eventSet("ancestor", AncestorListener.class, new String[] {
 						"ancestorAdded", "ancestorMoved", "ancestorRemoved" },
-						"addAncestorListener", "removeAncestorListener"),
+						 "addAncestorListener", "removeAncestorListener"),
 				eventSet("component", ComponentListener.class, new String[] {
 						"componentHidden", "componentMoved",
 						"componentResized", "componentShown" },
-						"addComponentListener", "removeComponentListener"),
+						 "addComponentListener", "removeComponentListener"),
 				eventSet("container", ContainerListener.class, new String[] {
 						"componentAdded", "componentRemoved" },
-						"addContainerListener", "removeContainerListener"),
+						 "addContainerListener", "removeContainerListener"),
 				eventSet("key", KeyListener.class, new String[] { "keyPressed",
 						"keyReleased", "keyTyped" }, "addKeyListener",
-						"removeKeyListener"),
+						 "removeKeyListener"),
 				eventSet("mouse", MouseListener.class, new String[] {
 						"mouseClicked", "mouseEntered", "mousePressed" },
-						"addMouseListener", "removeMouseListener"),
+						 "addMouseListener", "removeMouseListener"),
 				eventSet("mouseMotion", MouseMotionListener.class,
 						new String[] { "mouseMoved", "mouseDragged" },
 						"addMouseMotionListener", "removeMouseMotionListener"),
@@ -134,7 +135,6 @@ public class CalendarPanelBeanInfo extends SimpleBeanInfo {
 						new String[] { "vetoableChange" },
 						"addVetoableChangeListener",
 						"removeVetoableChangeListener") };
-		return eventSetDescriptor;
 	}
 
 	/**
@@ -155,7 +155,7 @@ public class CalendarPanelBeanInfo extends SimpleBeanInfo {
 			String getter, String setter, String propertyDescription) {
 		try {
 			PropertyDescriptor p;
-			if (getter.length() == 0)
+			if (getter.isEmpty())
 				p = new PropertyDescriptor(propertyName, CalendarPanel.class);
 			else
 				p = new PropertyDescriptor(propertyName, CalendarPanel.class,

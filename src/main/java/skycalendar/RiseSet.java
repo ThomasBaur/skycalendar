@@ -19,8 +19,8 @@ public class RiseSet {
 	private Calendar setTime;
 
 	private String dayTime(Calendar cal) {
-		return new StringBuilder().append(cal.get(Calendar.HOUR_OF_DAY))
-				.append(':').append(cal.get(Calendar.MINUTE)).toString();
+		return String.valueOf(cal.get(Calendar.HOUR_OF_DAY)) +
+				':' + cal.get(Calendar.MINUTE);
 	}
 
 	public String toString() {

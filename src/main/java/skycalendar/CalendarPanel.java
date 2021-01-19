@@ -63,7 +63,7 @@ public class CalendarPanel extends JPanel {
 	private static final int FIRST_MINUTE = 0;
 	private static final int LAST_MINUTE = 24 * 60;
 
-	private static final float dash1[] = { 3.0f };
+	private static final float[] dash1 = { 3.0f };
 	private static final BasicStroke dashed = new BasicStroke(1.0f,
 			BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 10.0f, dash1, 0.0f);
 
